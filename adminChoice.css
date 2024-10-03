@@ -1,0 +1,61 @@
+/* General styles for the body */
+body {
+    margin: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Use flexbox to center the box */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Styles for the centered box */
+.center-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow around the box */
+    text-align: center;
+    width: 300px;
+    max-width: 100%;
+}
+
+/* Heading and text */
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+/* Buttons styling */
+.buttons-container button {
+    width: 100%;
+    padding: 15px 30px;
+    font-size: 16px;
+    margin: 10px;
+    background-color:goldenrod;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add some shadow initially */
+}
+
+/* Button hover effect */
+.buttons-container button:hover {
+    background-color: #dba123; /* Darker background color on hover */
+    transform: translateY(-5px) scale(1.05); /* Moves button up and scales it */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* Button active (click) effect */
+.buttons-container button:active {
+    transform: translateY(0) scale(1); /* Reset scaling on click */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Back to original shadow */
+}

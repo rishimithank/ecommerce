@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="adminDashboard.css">
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
+    <style>
+        .product-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #productList {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 products per row */
+            gap: 20px; /* Space between each product */
+        }
+
+        .product-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .product-card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Inventory Management</h1>
+        <div class="product-container">
+            <h2>Product List</h2>
+            <div id="productList"></div>
+        </div>
+    </div>
+
+    <script>
+        // Firebase Firestore API URL for fetching products
+        const firestoreProductFetchUrl = "https://firestore.googleapis.com/v1/projects/ecommerce-bcc89/databases/(default)/documents/products";
+
+        // Function to fetch products from Firestore
+        async function fetchProductsFromFirestore() {
+            try {
+                const response = await fetch(firestoreProductFetchUrl);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch products: ' + response.statusText);
+                }
+
+                const data = await response.json();
+                displayProducts(data.documents);
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        }
+
+        // Function to display products on the webpage
+        function displayProducts(products) {
+            const productList = document.getElementById('productList');
+            productList.innerHTML = ''; // Clear the previous product list
+
+            if (!products || products.length === 0) {
+                productList.innerHTML = '<p>No products available.</p>';
+                return;
+            }
+
+            products.forEach(product => {
+                const productId = product.fields.id.stringValue;
+                const cat_id = product.fields.cat_id.stringValue;
+                const title = product.fields.title.stringValue;
+                const description = product.fields.description.stringValue;
+                const quantity = product.fields.quantity.integerValue;
+                const price = product.fields.price.doubleValue;
+                const imageBase64 = product.fields.imageFile.stringValue; // Assuming the image is stored in Base64
+
+                // Create product card
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+                productCard.innerHTML = `
+                    <img src="data:image/jpeg;base64,${imageBase64}" alt="${title}" />
+                    <p>${description}</p>
+                    <p>Quantity: ${quantity}</p>
+                    <p>Price: $${price.toFixed(2)}</p>
+                    
+                `;
+                productList.appendChild(productCard);
+            });
+        }
+
+        // Fetch and display products when the page loads
+        window.onload = () => {
+            fetchProductsFromFirestore();
+        };
+    </script>
+</body>
+</html>

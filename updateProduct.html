@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inventory</title>
+    <link rel="stylesheet" href="updateProduct.css">
+</head>
+<body>
+
+    <header>
+        <h1>Product Inventory</h1>
+        <h2>Manage Your Products Efficiently</h2>
+    </header>
+    <div class="controls">
+        <div class="dropdown-container">
+            <label for="cat_name">Category:</label>
+            <select id="cat_name" required>
+                <option value="">Select a category</option>
+                <option value="electronics">Electronics</option>
+                <option value="dress">Dress</option>
+                <option value="shoes">Shoes</option>
+            </select>
+        </div>
+
+        <div class="entries-container">
+            <label for="entriesPerPage">Products per page:</label>
+            <select id="entriesPerPage">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Product table -->
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Products will be dynamically inserted here -->
+            </tbody>
+        </table>
+
+        <!-- Update Section -->
+        <div id="updateSection" style="display: none;">
+            <h2>Update Product Details</h2>
+            <form id="updateForm">
+                <input type="hidden" id="updateProductId">
+                <div>
+                    <label for="updateProductName">Name:</label>
+                    <input type="text" id="updateProductName" required>
+                </div>
+                <div>
+                    <label for="updateProductDescription">Description:</label>
+                    <textarea id="updateProductDescription" required></textarea>
+                </div>
+                <div>
+                    <label for="updateProductQuantity">Quantity:</label>
+                    <input type="number" id="updateProductQuantity" required>
+                </div>
+                <div>
+                    <label for="updateProductPrice">Price:</label>
+                    <input type="number" step="0.01" id="updateProductPrice" required>
+                </div>
+                <div>
+                    <button type="submit">Update Product</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Pagination controls -->
+        <div class="pagination">
+            <button id="prevPage" disabled>Previous</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage">Next</button>
+        </div>
+    </div>
+
+    <script src="updateProduct.js"></script> <!-- External JS file -->
+</body>
+</html>

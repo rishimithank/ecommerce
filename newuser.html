@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Account</title>
+    <link rel="stylesheet" href="newuserstyles.css"> <!-- Link to the CSS file for new user registration -->
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Create New Account</h2>
+    <form id="registerForm">
+        <label for="newName">Name:</label>
+        <input type="name" id="newName" name="newName" placeholder="Enter your Name" required>
+
+        <label for="newMobile">Mobile Number:</label>
+        <input type="tel" id="newMobile" name="newMobile" placeholder="Enter your Mobile Number" required>
+
+        <label for="newEmail">Email:</label>
+        <input type="email" id="newEmail" name="newEmail" placeholder="Enter a Email" required>
+        
+        <label for="newPassword">Password:</label>
+        <input type="password" id="newPassword" name="newPassword" placeholder="Enter a password" required>
+
+        <div class="success" id="successMessage"></div>
+        
+        <button type="submit" id="registerButton">Register</button>
+        <div class="error" id="errorMessage"></div>
+    </form>
+    
+</div>
+
+
+<script src="newuser.js"></script>
+
+</body>
+</html>

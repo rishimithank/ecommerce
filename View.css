@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+header {
+    background-color: goldenrod;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Product table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Controls layout */
+.controls {
+    display: flex;
+    justify-content: space-between; /* Space out controls */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 20px;
+}
+
+.entries-container {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-container {
+    display: flex;
+    align-items: center; /* Center label and select vertically */
+}
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Label styling for the dropdown */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Styling for the dropdown boxes */
+select {
+    height: 40px; /* Set a height similar to your input fields */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0 10px; /* Add padding for better appearance */
+    font-size: 16px; /* Match font size with inputs */
+}
+
+/* Additional styles for the entries per page dropdown */
+select#entriesPerPage {
+    padding: 5px;
+    cursor: pointer;
+}
+
+select#entriesPerPage:focus {
+    border-color: #007BFF;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+select#entriesPerPage:hover {
+    background-color: #e6e6e6;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="customerDashboard.css">
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>Product List</h1>
+        </div>
+        <div class="header-middle">
+            <input type="text" id="searchBar" placeholder="Search products...">
+            <button id="searchBtn">Search</button>
+        </div>
+        <div class="header-right">
+            <!-- Cart icon with counter -->
+            <i class="fas fa-shopping-cart" id="cartImage" style="font-size: 40px; cursor: pointer;"></i>
+            <span id="cartCounter">0</span> <!-- Counter for cart items -->
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="product-container">
+            <div id="productList"></div>
+        </div>
+    </div>
+
+    <script src="customerDashboard.js"></script> <!-- Link to the external JavaScript file -->
+</body>
+</html>

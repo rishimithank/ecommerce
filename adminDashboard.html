@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="adminDashboard.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Inventory Management</h1>
+        <div class="form-container">
+            <h2>Add New Item</h2>
+            <form id="addItemForm">
+                <label for="id">Item ID:</label>
+                <input type="text" id="id" required>
+
+                <!-- Changed Category Name input into a dropdown box -->
+                <label for="cat_id">Category Name:</label>
+                <select id="cat_id" required>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Dress">Dress</option>
+                    <option value="Shoes">Shoes</option>
+                </select>
+
+                <label for="status_id">Status:</label>
+                <select id="status_id" required>
+                    <option value="In-stock">In-Stock</option>
+                    <option value="Out of stock">Out of stock</option>
+                </select>
+
+                <label for="title">Title:</label>
+                <input type="text" id="title" required>
+
+                <label for="des">Description:</label>
+                <textarea id="des" required></textarea>
+
+                <label for="qty">Quantity:</label>
+                <input type="number" id="qty" required>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" required>
+
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" accept="image/*" required>
+
+                <button type="submit" id="submitItemButton">Add Item</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+
+    <script src="adminDashboard.js"></script>
+</body>
+</html>

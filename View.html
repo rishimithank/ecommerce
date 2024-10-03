@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inventory</title>
+    <link rel="stylesheet" href="View.css">
+</head>
+<body>
+
+    <header>
+        <h1>Product Inventory</h1>
+        <h2>Manage Your Products Efficiently</h2>
+    </header>
+    <div class="controls">
+        <div class="dropdown-container">
+            <label for="cat_name">Category:</label>
+            <select id="cat_name" required>
+                <option value="">Select a category</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Dress">Dress</option>
+                <option value="Shoes">Shoes</option>
+            </select>
+        </div>
+
+        <div class="entries-container">
+            <label for="entriesPerPage">Products per page:</label>
+            <select id="entriesPerPage">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Product table -->
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Products will be dynamically inserted here -->
+            </tbody>
+        </table>
+
+        <!-- Controls layout -->
+        
+
+        <!-- Pagination controls -->
+        <div class="pagination">
+            <button id="prevPage" disabled>Previous</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage">Next</button>
+        </div>
+    </div>
+
+    <script src="View.js"></script> <!-- External JS file -->
+</body>
+</html>
